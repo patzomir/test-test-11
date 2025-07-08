@@ -1,0 +1,24 @@
+id: DataProduct111
+name: data product 111
+description: this is test data product
+schema_version: 1.0.0
+governance:
+  owner: test_owner
+  group: test_group
+dataset:
+  name: data product 111
+  description: this is test data product
+  mate_models:
+  - select: models/
+output_ports:
+- id: DataProduct111
+  name: data product 111
+  type: tables
+  description: this is test data product
+service_level_indicators:
+- mate_tests:
+  - select: models/
+service_level_objectives:
+- name: data product 111
+  description: quality should be good
+  test_select: models/
