@@ -1,0 +1,29 @@
+include:
+  - /dataops/config/bootstrap.yml
+  #- /pipelines/includes/bootstrap.yml
+  # - project: reference-template-projects/dataops-template/dataops-reference
+  #   ref: 5-stable
+  #   file: /pipelines/includes/default/load_secrets.yml
+  # Snowflake Object Lifecycle jobs
+  - project: reference-template-projects/dataops-template/dataops-reference
+    ref: 5-stable
+    file: /pipelines/includes/default/snowflake_lifecycle.yml
+
+  - /data_product_111/jobs/sources.yml
+  - /data_product_111/jobs/build_all.yml
+  - /data_product_111/jobs/test_all.yml
+  - /data_product_111/jobs/docs.yml
+  - /data_product_111/jobs/data_product_compiler.yml
+
+
+Set Up Snowflake:
+  variables:
+    CONFIGURATION_DIR: $CI_PROJECT_DIR/data_product_111/snowflake/
+    DATAOPS_TEMPLATES_DIR: $CI_PROJECT_DIR/data_product_111/
+
+variables:
+    DATA_PRODUCT_SOURCE_FILE: data_product_111/data_product_definition/DataProduct111.yml
+    DATA_PRODUCT_SELECTOR:  tag:data_product_111
+
+
+    DATAOPS_DATABASE_MASTER: CREATE_TEST
