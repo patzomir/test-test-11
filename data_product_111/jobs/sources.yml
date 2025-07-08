@@ -1,0 +1,18 @@
+Test DataProduct111 Sources:
+  extends:
+    - .modelling_and_transformation_base
+    - .agent_tag
+  variables:
+    TRANSFORM_ACTION: TEST
+    TRANSFORM_MODEL_SELECTOR: tag:data_product_111_sources
+    DATAOPS_DATA_PRODUCT_SPECIFICATION_FILE: ${CI_PROJECT_DIR}/${DATA_PRODUCT_SOURCE_FILE}
+  stage: Source Testing
+  script:
+    - /dataops
+  icon: ${TESTING_ICON}
+  artifacts:
+    when: always
+    paths:
+      - report.xml
+    reports:
+      junit: $CI_PROJECT_DIR/report.xml
