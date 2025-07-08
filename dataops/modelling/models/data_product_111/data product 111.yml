@@ -1,0 +1,16 @@
+version: 2
+models:
+- name: data_product_111_TEST_TABLE
+  description: ''
+  columns:
+  - name: ID
+    description: ''
+    tests:
+    - not_null
+    - unique
+- name: data_product_111_TEST_TABLE2
+  description: ''
+  columns:
+  - name: ID
+    description: ''
+    tests: []
