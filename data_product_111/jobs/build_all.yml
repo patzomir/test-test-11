@@ -1,0 +1,13 @@
+Build DataProduct111 Models:
+  extends:
+    - .modelling_and_transformation_base
+    - .agent_tag
+  variables:
+    TRANSFORM_ACTION: RUN
+    TRANSFORM_MODEL_SELECTOR: tag:data_product_111
+    DATAOPS_DATA_PRODUCT_SPECIFICATION_FILE: ${CI_PROJECT_DIR}/${DATA_PRODUCT_SOURCE_FILE}
+
+  stage: Data Transformation
+  script:
+    - /dataops
+  icon: ${TRANSFORM_ICON}
