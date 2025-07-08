@@ -1,0 +1,23 @@
+version: 2
+sources:
+- name: DATA_PRODUCT_111_PUBLIC
+  database: '{{ env_var("DATAOPS_DATABASE") }}'
+  schema: PUBLIC
+  description: ''
+  tables:
+  - name: TEST_TABLE
+    description: ''
+    columns:
+    - name: ID
+      description: ''
+      tests:
+      - not_null
+      - unique
+  - name: TEST_TABLE2
+    description: ''
+    columns:
+    - name: ID
+      description: ''
+      tests: []
+  tags:
+  - data_product_111_sources
