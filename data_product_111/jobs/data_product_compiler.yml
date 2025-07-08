@@ -1,0 +1,18 @@
+Data Product DataProduct111 compiler :
+  extends:
+    - .agent_tag
+  stage: "Data Product"
+  image: $DATAOPS_DATAPRODUCT_RUNNER_IMAGE
+  variables:
+    DATAOPS_DATA_PRODUCT_SPECIFICATION_FILE: ${CI_PROJECT_DIR}/${DATA_PRODUCT_SOURCE_FILE}
+  script:
+    - /dataops
+  artifacts:
+    when: always
+    paths:
+      - dataops/report/data_product_manifest_viewer/
+    name: "Data Product Manifest Viewer"
+    expose_as: "dataopsreport"
+    reports:
+      junit: $CI_PROJECT_DIR/backwards_compatibility.xml
+  icon: ${DATAOPS_ICON}
